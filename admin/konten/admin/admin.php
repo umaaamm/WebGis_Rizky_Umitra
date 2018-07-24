@@ -1,12 +1,14 @@
+<!-- menagambil id dari link -->
 <?php
-@$id_delete = $_GET['id_delete'];
+@$id_delete = $_GET['id_delete']; //parameter untuk hapus
 if (!empty($id_delete)) {
-    $query_hapus = $koneksi->query("DELETE FROM tbl_admin where id='" . $id_delete . "' ");
+    $query_hapus = $koneksi->query("DELETE FROM tbl_admin where id='" . $id_delete . "' "); //query hapus admin
     echo '<div class="alert alert-success">Data Berhasil di Hapus</div>';
-    echo "<meta http-equiv=refresh content=1;url='?m1=admin&m2=admin'>";
+    echo "<meta http-equiv=refresh content=1;url='?m1=admin&m2=admin'>"; //redirect setelah berhasil hapus
 }
 ?>
 
+<!-- untuk tambah data admin -->
 <?php
 if (isset($_POST['submit'])) {
     $nama = $_POST['nama'];
@@ -17,6 +19,8 @@ if (isset($_POST['submit'])) {
     echo "<meta http-equiv=refresh content=1;url='?m1=admin&m2=admin'>";
 }
 ?>
+
+<!-- untuk menampilkan form tambah admin -->
 <div class="row">
     <!-- left column -->
     <div class="col-md-4">
@@ -29,7 +33,7 @@ if (isset($_POST['submit'])) {
             <!-- form start -->
             <form role="form" action="" method="post">
                 <div class="box-body">
-                     <div class="form-group">
+                    <div class="form-group">
                         <label>Nama</label>
                         <input type="text" class="form-control" name="nama" placeholder="Masukkan Nama">
                     </div>
@@ -48,6 +52,8 @@ if (isset($_POST['submit'])) {
     </div>
 </div>
 <div class="col-md-8">
+
+    <!-- menampilkan data admin setelah di inputkan-->
     <?php
     $query = $koneksi->query("SELECT * FROM tbl_admin");
     ?>
@@ -79,7 +85,7 @@ if (isset($_POST['submit'])) {
                         <td><?= $tampil['nama'] ?></td>
                         <td><?= $tampil['password'] ?></td>
                         <td><?= $tampil['level'] ?></td>
-                        <td><a href="javascript:;" data-id="<? echo $tampil['id'] ?>" data-toggle="modal"
+                        <td><a href="javascript:;" data-id="<?php echo $tampil['id'] ?>" data-toggle="modal"
                                data-target="#modal-konfirmasi" class="btn btn-success btn-danger fa fa-trash"></a>&nbsp;<a
                                     href="
 						?m1=admin&m2=edit-admin&id_edit=<?= $tampil['id'] ?>" class="
@@ -92,6 +98,8 @@ if (isset($_POST['submit'])) {
             </table>
         </div>
     </div>
+
+    <!-- modal untuk hapus data admin -->
 
     <div id="modal-konfirmasi" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
          aria-hidden="true">

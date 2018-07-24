@@ -1,3 +1,4 @@
+<!-- ini digunakan untuk fungsi hapus data gis  -->
 <?php
 @$id_delete = $_GET['id_delete'];
 if (!empty($id_delete)) {
@@ -7,8 +8,12 @@ if (!empty($id_delete)) {
 }
 ?>
 
+<!-- --------- -->
+
+<!-- ini digunakan untuk simpan data gis -->
 <?php
 if (isset($_POST['submit'])) {
+    //input parameter untuk tambah data dari form
     $nama_perusahaan = $_POST['nama_perusahaan'];
     $pimpinan = $_POST['pimpinan'];
     $deskripsi = $_POST['deskripsi'];
@@ -19,18 +24,22 @@ if (isset($_POST['submit'])) {
     $lon = $_POST['lon'];
     $namagambar = $_FILES['gambar'] ['name'];
     $lokasi = $_FILES['gambar'] ['tmp_name'];
-    
-    $lokasitujuan="././img";
-    if (empty($namagambar))
-        {
-          $namagambar="noimage.png";
-        }
-    $upload = move_uploaded_file($lokasi,$lokasitujuan."/".$namagambar);
-    $query_tambah = $koneksi->query("INSERT INTO tbl_gis (nama_perusahaan,pimpinan,deskripsi,jam_buka,alamat,no_telp,lat,lon,gambar)values ('" . $nama_perusahaan . "','" . $pimpinan . "','".$deskripsi."','".$jam_buka."','" . $alamat . "','" . $no_telp . "','" . $lat . "','".$lon."','".$namagambar."')");
+
+    $lokasitujuan = "././img";
+    //jika gambar kosong maka di isi dengan nama noimage.png
+    if (empty($namagambar)) {
+        $namagambar = "noimage.png";
+    }
+    $upload = move_uploaded_file($lokasi, $lokasitujuan . "/" . $namagambar); //untuk memindahkan gambar dari storage kita ke path xampp
+
+    //query untuk tambah data
+    $query_tambah = $koneksi->query("INSERT INTO tbl_gis (nama_perusahaan,pimpinan,deskripsi,jam_buka,alamat,no_telp,lat,lon,gambar)values ('" . $nama_perusahaan . "','" . $pimpinan . "','" . $deskripsi . "','" . $jam_buka . "','" . $alamat . "','" . $no_telp . "','" . $lat . "','" . $lon . "','" . $namagambar . "')");
     echo '<div class="alert alert-success">Data Berhasil di Tambah</div>';
     echo "<meta http-equiv=refresh content=1;url='?m1=gis&m2=gis'>";
 }
 ?>
+<!-- -------- -->
+<!-- digunakan untuk tampilan form halaman input data GIS -->
 <div class="row">
     <!-- left column -->
     <div class="col-md-4">
@@ -45,7 +54,8 @@ if (isset($_POST['submit'])) {
                 <div class="box-body">
                     <div class="form-group">
                         <label>Nama Perushaan</label>
-                        <input type="text" class="form-control" name="nama_perusahaan" placeholder="Masukkan Nama Perushaan">
+                        <input type="text" class="form-control" name="nama_perusahaan"
+                               placeholder="Masukkan Nama Perushaan">
                     </div>
                     <div class="form-group">
                         <label>Pimpinan</label>
@@ -67,7 +77,7 @@ if (isset($_POST['submit'])) {
                         <label>No Telpon</label>
                         <input type="text" class="form-control" name="no_telp" placeholder="Masukkan No Telpon">
                     </div>
-                     <div class="form-group">
+                    <div class="form-group">
                         <label>Latitude</label>
                         <input type="text" class="form-control" name="lat" placeholder="Masukkan Latitude">
                     </div>
@@ -77,13 +87,14 @@ if (isset($_POST['submit'])) {
                     </div>
                     <label>Foto</label>
                     <div class="form-group">
-                        <img src="img/noimage.png" class="img-thumbnail img-responsive" style="width:300px; height:300px; margin-bottom:10px;" id="picturebox">
-                        <input type="file" accept="image/*" name="gambar" class="form-control" id="btnimage" >
-                            
+                        <img src="img/noimage.png" class="img-thumbnail img-responsive"
+                             style="width:300px; height:300px; margin-bottom:10px;" id="picturebox">
+                        <input type="file" accept="image/*" name="gambar" class="form-control" id="btnimage">
+
                     </div>
                     <!-- /.box-body -->
 
-                    <div class="box-footer"> 
+                    <div class="box-footer">
                         <button type="submit" name="submit" class="btn btn-primary">Simpan</button>
                         <button type="reset" name="reset" class="btn btn-danger">Reset</button>
                     </div>
@@ -91,6 +102,8 @@ if (isset($_POST['submit'])) {
         </div>
     </div>
 </div>
+<!-- ------------ -->
+<!-- digunakan untuk menampilkan data gis yang telah di inputkan -->
 <div class="col-md-8">
     <?php
     $query = $koneksi->query("SELECT * FROM tbl_gis");
@@ -135,7 +148,7 @@ if (isset($_POST['submit'])) {
                         <td><?= $tampil['lat'] ?></td>
                         <td><?= $tampil['lon'] ?></td>
                         <td><?= $tampil['gambar'] ?></td>
-                        <td><a href="javascript:;" data-id="<? echo $tampil['id'] ?>" data-toggle="modal"
+                        <td><a href="javascript:;" data-id="<?php echo $tampil['id'] ?>" data-toggle="modal"
                                data-target="#modal-konfirmasi" class="btn btn-success btn-danger fa fa-trash"></a>&nbsp;<a
                                     href="
 						?m1=gis&m2=editgis&id_edit=<?= $tampil['id'] ?>" class="
@@ -148,7 +161,9 @@ if (isset($_POST['submit'])) {
             </table>
         </div>
     </div>
+    <!-- -------------------- -->
 
+    <!-- untuk modal Hapus Data GIS -->
     <div id="modal-konfirmasi" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
          aria-hidden="true">
         <div class="modal-dialog">
@@ -171,3 +186,4 @@ if (isset($_POST['submit'])) {
         </div>
     </div>
 </div>
+<!-- --------- -->

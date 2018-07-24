@@ -1,6 +1,6 @@
 <?php
 
-include "koneksi/koneksi.php";
+include "koneksi/koneksi.php"; //memanggil koneksi
 
 ?>
 
@@ -26,10 +26,10 @@ include "koneksi/koneksi.php";
 <?php
 
 @$id = $_GET['id'];
-$query_edit = $koneksi->query("SELECT * FROM tbl_gis where id='". $id . "' ");
-$tampil= $query_edit->fetch_assoc();
+$query_edit = $koneksi->query("SELECT * FROM tbl_gis where id='". $id . "' "); //memanggil data per ID
+$tampil= $query_edit->fetch_assoc(); //memasukkan ke array
 
-$cut=substr($tampil['alamat'],0,50);
+$cut=substr($tampil['alamat'],0,50); //hanya menampilkan karakter dari 0 sampe 50
 
 ?>
 
@@ -68,7 +68,7 @@ $cut=substr($tampil['alamat'],0,50);
 
 
         <?php
-        $latlon = $tampil['lat'].",".$tampil['lon'];
+        $latlon = $tampil['lat'].",".$tampil['lon'];//memanggil latlon
         
         ?>
 
@@ -84,6 +84,8 @@ $cut=substr($tampil['alamat'],0,50);
                          <div id="jarak"></div>
                         <hr size="1px;">
             </div>
+
+            <!-- JS untuk menampilkan maps dan durasi perjalanan -->
             <script>
       function initMap() {
         var directionsService = new google.maps.DirectionsService;
