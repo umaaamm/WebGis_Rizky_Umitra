@@ -57,49 +57,49 @@ if (isset($_POST['submit'])) {
                     <div class="form-group">
                         <label>Nama Perushaan</label>
                         <input type="text" class="form-control" name="nama_perusahaan"
-                               value="<?= $tampil_edit['nama_perusahaan'] ?>" placeholder="Masukkan Nama Perushaan">
+                               value="<?= $tampil_edit['nama_perusahaan'] ?>" placeholder="Masukkan Nama Perushaan" required>
                     </div>
                     <div class="form-group">
                         <label>Pimpinan</label>
                         <input type="text" value="<?= $tampil_edit['pimpinan'] ?>" class="form-control" name="pimpinan"
-                               placeholder="Masukkan Pimpinan">
+                               placeholder="Masukkan Pimpinan" required>
                     </div>
                     <div class="form-group">
                         <label>Deskripsi</label>
                         <textarea class="form-control" placeholder="Deskripsi"
-                                  name="deskripsi"><?= $tampil_edit['deskripsi'] ?></textarea>
+                                  name="deskripsi" required><?= $tampil_edit['deskripsi'] ?></textarea>
                     </div>
                     <div class="form-group">
                         <label>Jam Buka</label>
                         <input type="text" value="<?= $tampil_edit['jam_buka'] ?>" class="form-control" name="jam_buka"
-                               placeholder="Masukkan Jam Buka">
+                               placeholder="Masukkan Jam Buka" required>
                     </div>
                     <div class="form-group">
                         <label>Alamat</label>
                         <textarea class="form-control" placeholder="Alamat"
-                                  name="alamat"><?= $tampil_edit['alamat'] ?></textarea>
+                                  name="alamat" required><?= $tampil_edit['alamat'] ?></textarea>
                     </div>
                     <div class="form-group">
                         <label>No Telpon</label>
                         <input type="text" value="<?= $tampil_edit['no_telp'] ?>" class="form-control" name="no_telp"
-                               placeholder="Masukkan No Telpon">
+                               placeholder="Masukkan No Telpon" required>
                     </div>
                     <div class="form-group">
                         <label>Latitude</label>
                         <input type="text" value="<?= $tampil_edit['lat'] ?>" class="form-control" name="lat"
-                               placeholder="Masukkan Latitude">
+                               placeholder="Masukkan Latitude" required>
                     </div>
                     <div class="form-group">
                         <label>Longtitude</label>
                         <input type="text" value="<?= $tampil_edit['lon'] ?>" class="form-control" name="lon"
-                               placeholder="Masukkan Lontitude">
+                               placeholder="Masukkan Lontitude" required>
                     </div>
 
                     <label>Foto</label>
                     <div class="form-group">
                         <img src="img/<?= $tampil_edit['gambar'] ?>" class="img-thumbnail img-responsive"
-                             style="width:300px; hegith:300px; margin-bottom:10px;" id="picturebox">
-                        <input type="file" accept="image/*" name="gambar" class="form-control" id="btnimage">
+                             style="width:300px; hegith:300px; margin-bottom:10px;" id="picturebox" >
+                        <input type="file" accept="image/*" name="gambar" class="form-control" id="btnimage" required>
 
                     </div>
                     <!-- /.box-body -->

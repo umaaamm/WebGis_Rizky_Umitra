@@ -46,12 +46,12 @@ if (isset($_POST['submit'])) {
                     <div class="form-group">
                         <label>Nama</label>
                         <input type="text" class="form-control" name="nama" value="<?= $tampil_edit['nama']; ?>"
-                               placeholder="Masukkan Nama">
+                               placeholder="Masukkan Nama" required>
                     </div>
                     <div class="form-group">
                         <label>Password</label>
                         <input type="text" class="form-control" name="password" value="<?= $tampil_edit['password']; ?>"
-                               placeholder="Masukkan Password">
+                               placeholder="Masukkan Password" required>
                     </div>
                 </div>
                 <div class="box-footer">

@@ -35,11 +35,11 @@ if (isset($_POST['submit'])) {
                 <div class="box-body">
                     <div class="form-group">
                         <label>Nama</label>
-                        <input type="text" class="form-control" name="nama" placeholder="Masukkan Nama">
+                        <input type="text" class="form-control" name="nama" placeholder="Masukkan Nama" required>
                     </div>
                     <div class="form-group">
                         <label>Password</label>
-                        <input type="password" class="form-control" name="password" placeholder="Masukkan Password">
+                        <input type="password" class="form-control" name="password" placeholder="Masukkan Password" required>
                     </div>
                     <!-- /.box-body -->
 

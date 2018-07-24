@@ -55,41 +55,41 @@ if (isset($_POST['submit'])) {
                     <div class="form-group">
                         <label>Nama Perushaan</label>
                         <input type="text" class="form-control" name="nama_perusahaan"
-                               placeholder="Masukkan Nama Perushaan">
+                               placeholder="Masukkan Nama Perushaan" required>
                     </div>
                     <div class="form-group">
                         <label>Pimpinan</label>
-                        <input type="text" class="form-control" name="pimpinan" placeholder="Masukkan Pimpinan">
+                        <input type="text" class="form-control" name="pimpinan" placeholder="Masukkan Pimpinan" required>
                     </div>
                     <div class="form-group">
                         <label>Deskripsi</label>
-                        <textarea class="form-control" placeholder="Deskripsi" name="deskripsi"></textarea>
+                        <textarea class="form-control" placeholder="Deskripsi" name="deskripsi" required></textarea>
                     </div>
                     <div class="form-group">
                         <label>Jam Buka</label>
-                        <input type="text" class="form-control" name="jam_buka" placeholder="Masukkan Jam Buka">
+                        <input type="text" class="form-control" name="jam_buka" placeholder="Masukkan Jam Buka" required>
                     </div>
                     <div class="form-group">
                         <label>Alamat</label>
-                        <textarea class="form-control" placeholder="Alamat" name="alamat"></textarea>
+                        <textarea class="form-control" placeholder="Alamat" name="alamat" required></textarea>
                     </div>
                     <div class="form-group">
                         <label>No Telpon</label>
-                        <input type="text" class="form-control" name="no_telp" placeholder="Masukkan No Telpon">
+                        <input type="text" class="form-control" name="no_telp" placeholder="Masukkan No Telpon" required>
                     </div>
                     <div class="form-group">
                         <label>Latitude</label>
-                        <input type="text" class="form-control" name="lat" placeholder="Masukkan Latitude">
+                        <input type="text" class="form-control" name="lat" placeholder="Masukkan Latitude" required>
                     </div>
                     <div class="form-group">
                         <label>Longtitude</label>
-                        <input type="text" class="form-control" name="lon" placeholder="Masukkan Lontitude">
+                        <input type="text" class="form-control" name="lon" placeholder="Masukkan Lontitude" required>
                     </div>
                     <label>Foto</label>
                     <div class="form-group">
                         <img src="img/noimage.png" class="img-thumbnail img-responsive"
                              style="width:300px; height:300px; margin-bottom:10px;" id="picturebox">
-                        <input type="file" accept="image/*" name="gambar" class="form-control" id="btnimage">
+                        <input type="file" accept="image/*" name="gambar" class="form-control" id="btnimage" required>
 
                     </div>
                     <!-- /.box-body -->
